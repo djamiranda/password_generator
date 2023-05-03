@@ -2,6 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 
 var uppercase = []
+var lowercase = []
+var special = []
+var numbers = []
 
 
 // Write password to the #password input
