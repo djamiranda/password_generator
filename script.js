@@ -15,7 +15,8 @@ var special = confirm ("Do you want special characters?");
 var numbers = confirm ("Do you want numbers?");
 
 // Added passwordCharacters array
-var passwordCharacters = []
+var passwordCharacters = [];
+var passwordLength = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -27,15 +28,21 @@ function writePassword() {
 }
 // added generatePassword function
 function generatePassword() {
-
+var password ="";
+for (var i = 0; i < passwordLength; i++) {
+  var randomCharacter = Math.floor(Math.random() * passwordCharacters.length);
+  password = password + passwordCharacters[randomCharacter];
+}
+return password;
 }
 
 // added getPrompts function for password length, letters, numbers & character prompts
 function getPrompts() {
-  characterLength = parseInt(prompt("Enter Password length from 8 to 128 characters"));
-  if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
+
+  passwordLength = parseInt(prompt("Enter Password length from 8 to 128 characters"));
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Please enter a password length between 8 & 128 characters");
-    return false
+    return false;
   }
 if (confirm("Do you want lowercase letters?")); {
 passwordCharacters = passwordCharacters.concat(lowercaseLetters);
@@ -49,6 +56,7 @@ passwordCharacters = passwordCharacters.concat(specialCharacters);
 if (confirm("Do you want numbers?")); {
 passwordCharacters = passwordCharacters.concat(numberCharacters);
 }
+return true;
 }
 
 
