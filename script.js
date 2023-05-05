@@ -11,7 +11,7 @@ var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 //var special = confirm ("Do you want special characters?");
 //var numbers = confirm ("Do you want numbers?");
 
-// Added passwordCharacters array
+// Added passwordCharacters & passwordLength arrays
 var passwordCharacters = [];
 var passwordLength = [];
 
@@ -21,22 +21,30 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button (moved to above write password function)
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+// Write password to the #password input (added getPrompts)
 function writePassword() {
   getPrompts();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  if (passwordCharacters.length === 0) {  
+  passwordText.value = "";
+  alert("Please try again & enter a password length between 8 & 128 characters");
+  return
+  }
+
   passwordText.value = password;
+  console.log(password);
 }
 
-// added generatePassword function
+// added generatePassword function & random password generator
 function generatePassword() {
 var password ="";
 for (var i = 0; i < passwordLength; i++) {
   var randomCharacter = Math.floor(Math.random() * passwordCharacters.length);
   password = password + passwordCharacters[randomCharacter];
 }
+console.log(password);
 return password;
 }
 
@@ -60,5 +68,10 @@ passwordCharacters = passwordCharacters.concat(specialCharacters);
 if (confirm("Do you want numbers?")) {
 passwordCharacters = passwordCharacters.concat(numberCharacters);
 }
+console.log (passwordCharacters.length);
 return true;
+
 }
+
+
+
