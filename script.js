@@ -29,7 +29,7 @@ function writePassword() {
 // added to handle if user enters valid passwordLength, however does not select passwordCharacters
   if (passwordCharacters.length === 0) {  
   passwordText.value = "";
-  alert("Please try again & enter a password length between 8 & 128 characters");
+  alert("Please try again. Enter password length & select characters");
   return
   }
 
