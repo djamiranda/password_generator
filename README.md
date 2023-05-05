@@ -5,7 +5,7 @@
 Modified starter code to create random password generator for employees based on criteria they selected, such as password length & characters.
 
 
-## Refactored Site
+## Screenshot
 
 ![screenshot](./assets/images/screenshot.png)
 
